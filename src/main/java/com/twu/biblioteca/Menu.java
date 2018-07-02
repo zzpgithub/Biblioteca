@@ -15,7 +15,7 @@ public class Menu {
   }
 
   public void printMenuOption() {
-    System.out.println("List Books " + "Please input your choice:\n");
+    System.out.println("1.List Books \n" + "2.Checkout Book\n" + "3.Return Book\n" + "4.Quit\n" + "Please input your choice:");
   }
 
   public void selectMenu() {
@@ -25,10 +25,19 @@ public class Menu {
     switch (choice) {
       case 1:
         bookMenu.displayBookDetails();
-        System.out.println("Input book name want to check out:");
-        Scanner bookName = new Scanner(System.in);
-        bookMenu.checkOutBook(bookName.nextLine());
         break;
+      case 2:
+        System.out.println("Input book name want to check out:");
+        Scanner bookNameCheckOut = new Scanner(System.in);
+        bookMenu.checkOutBook(bookNameCheckOut.nextLine());
+        break;
+      case 3:
+        System.out.println("Input book name want to return:");
+        Scanner bookNameReturn = new Scanner(System.in);
+        bookMenu.returnBook(bookNameReturn.nextLine());
+        break;
+      case 4:
+        System.exit(0);
       default:
         System.out.println("Select a valid option!\n");
         break;

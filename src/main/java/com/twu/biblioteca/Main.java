@@ -7,9 +7,11 @@ public class Main {
     Menu menu = new Menu();
     menu.printWelcomeMessage();
     //menu.printMenuOption();
-    menu.selectMenu();
+    while (true) {
+      menu.selectMenu();
+    }
 
-   // BookMenu bookMenu = new BookMenu();
-   // bookMenu.displayBookDetails();
+    // BookMenu bookMenu = new BookMenu();
+    // bookMenu.displayBookDetails();
   }
 }

@@ -6,8 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.fest.assertions.api.Assertions.assertThat;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 public class BookMenuTest {
 
@@ -49,4 +47,21 @@ public class BookMenuTest {
     bookMenu.checkOutBook(book.getName());
     assertThat(systemOut().contains("That book is not available")).isTrue();
   }
+
+  @Test
+  public void should_return_successful_message_when_return_book_success() {
+    Book book = new Book("Saint Joan", "George Bernard Shaw", "1923");
+    bookMenu.checkOutBook(book.getName());
+    bookMenu.returnBook(book.getName());
+    assertThat(systemOut().endsWith("Thank you for returning the book.\n")).isTrue();
+  }
+
+  @Test
+  public void should_return_unsuccessful_message_when_return_book_unsuccess() {
+    Book book = new Book("Saint Joan", "George Bernard Shaw", "1923");
+    bookMenu.checkOutBook(book.getName());
+    bookMenu.returnBook("Head");
+    assertThat(systemOut().endsWith("That is not a valid book to return.\n")).isTrue();
+  }
+
 }

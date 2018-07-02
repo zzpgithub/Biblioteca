@@ -28,7 +28,7 @@ public class BookMenu {
   public void checkOutBook(String bookName) {
     while (true) {
       //System.out.println("Input book name want to check out:");
-      if (isBookCheckedOut(bookName)) {
+      if (isBookCheckedOut(bookName, false)) {
         System.out.println("Thank you! Enjoy the book");
         break;
       } else {
@@ -38,19 +38,30 @@ public class BookMenu {
     }
   }
 
-  public boolean isBookCheckedOut(String bookName) {
+  public void returnBook(String bookName) {
+    //System.out.println("Please input a book name you want to return:");
+    if(isBookCheckedOut(bookName, true)){
+      System.out.print("Thank you for returning the book.\n");
+    }
+    else
+      System.out.print("That is not a valid book to return.\n");
+  }
+
+
+  public boolean isBookCheckedOut(String bookName, boolean isCheckOut) {
     Book checkOutBook = new Book(bookName, "", "");
-    boolean checkOut = false;
+    boolean flag = false;
     for (Book book : bookList) {
-      if (checkOutBook.equals(book) && book.isCheckOut() == false) {
-        book.setCheckOut(true);
+      if (checkOutBook.equals(book) && book.isCheckOut() == isCheckOut) {
+        book.setCheckOut(!isCheckOut);
         //bookList.remove(book);
-        checkOut = true;
+        flag = true;
+        break;
       } else {
-        checkOut = false;
+        flag = false;
       }
     }
-    return checkOut;
+    return flag;
   }
 }
 
