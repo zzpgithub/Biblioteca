@@ -1,7 +1,6 @@
 package com.twu.biblioteca.modelMenu;
 
 import com.twu.biblioteca.model.Book;
-import com.twu.biblioteca.modelMenu.BookMenu;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import org.junit.Before;
