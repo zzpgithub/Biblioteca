@@ -6,9 +6,10 @@ public class Main {
     // System.out.println("Hello World!");
     Menu menu = new Menu();
     menu.printWelcomeMessage();
-    menu.printMenuOption();
+    //menu.printMenuOption();
+    menu.selectMenu();
 
-    BookMenu bookMenu = new BookMenu();
-    bookMenu.displayBookDetails();
+   // BookMenu bookMenu = new BookMenu();
+   // bookMenu.displayBookDetails();
   }
 }
