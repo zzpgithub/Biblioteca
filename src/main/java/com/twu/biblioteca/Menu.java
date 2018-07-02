@@ -1,13 +1,17 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.modelMenu.BookMenu;
+import com.twu.biblioteca.modelMenu.UserMenu;
 import java.util.Scanner;
 
 public class Menu {
 
   private BookMenu bookMenu;
+  private UserMenu userMenu;
 
   public Menu() {
     bookMenu = new BookMenu();
+    userMenu = new UserMenu();
   }
 
   public void printWelcomeMessage() {
@@ -15,7 +19,9 @@ public class Menu {
   }
 
   public void printMenuOption() {
-    System.out.println("1.List Books \n" + "2.Checkout Book\n" + "3.Return Book\n" + "4.Quit\n" + "Please input your choice:");
+    System.out.println("1.List Books\n" + "2.Checkout Book\n" + "3.Return Book\n" + "4.Quit\n"
+        + "5.User Accounts\n"
+        + "Please input your choice:");
   }
 
   public void selectMenu() {
@@ -38,6 +44,10 @@ public class Menu {
         break;
       case 4:
         System.exit(0);
+      case 5:
+        System.out.println("Please logIn:");
+        userMenu.login();
+        break;
       default:
         System.out.println("Select a valid option!\n");
         break;

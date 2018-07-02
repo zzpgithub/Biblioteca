@@ -1,6 +1,7 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.modelMenu;
 
 
+import com.twu.biblioteca.model.Book;
 import java.util.Arrays;
 import java.util.List;
 
