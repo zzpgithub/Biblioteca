@@ -42,4 +42,11 @@ public class BookMenuTest {
     bookMenu.checkOutBook(book.getName());
     assertThat(systemOut().contains("Thank you! Enjoy the book")).isTrue();
   }
+
+  @Test
+  public void should_return_unsuccessful_message_when_checked_out_book_unsuccess() {
+    Book book = new Book("Head", "Brad Kale", "1980");
+    bookMenu.checkOutBook(book.getName());
+    assertThat(systemOut().contains("That book is not available")).isTrue();
+  }
 }

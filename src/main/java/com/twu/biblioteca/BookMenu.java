@@ -33,6 +33,7 @@ public class BookMenu {
         break;
       } else {
         System.out.print("That book is not available.\n");
+        break;
       }
     }
   }
