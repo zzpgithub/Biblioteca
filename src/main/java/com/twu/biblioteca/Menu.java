@@ -25,6 +25,9 @@ public class Menu {
     switch (choice) {
       case 1:
         bookMenu.displayBookDetails();
+        System.out.println("Input book name want to check out:");
+        Scanner bookName = new Scanner(System.in);
+        bookMenu.checkOutBook(bookName.nextLine());
         break;
       default:
         System.out.println("Select a valid option!\n");

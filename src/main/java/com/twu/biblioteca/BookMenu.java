@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class BookMenu {
+
   private List<Book> bookList;
 
   public BookMenu() {
@@ -16,10 +17,39 @@ public class BookMenu {
     );
   }
 
-  public void displayBookDetails(){
-    for (Book book:bookList) {
-      System.out.print(book + "\n");
+  public void displayBookDetails() {
+    for (Book book : bookList) {
+      if (!book.isCheckOut()) {
+        System.out.print(book + "\n");
+      }
     }
+  }
+
+  public void checkOutBook(String bookName) {
+    while (true) {
+      //System.out.println("Input book name want to check out:");
+      if (isBookCheckedOut(bookName)) {
+        System.out.println("Thank you! Enjoy the book");
+        break;
+      } else {
+        System.out.print("That book is not available.\n");
+      }
+    }
+  }
+
+  public boolean isBookCheckedOut(String bookName) {
+    Book checkOutBook = new Book(bookName, "", "");
+    boolean checkOut = false;
+    for (Book book : bookList) {
+      if (checkOutBook.equals(book) && book.isCheckOut() == false) {
+        book.setCheckOut(true);
+        //bookList.remove(book);
+        checkOut = true;
+      } else {
+        checkOut = false;
+      }
+    }
+    return checkOut;
   }
 }
 

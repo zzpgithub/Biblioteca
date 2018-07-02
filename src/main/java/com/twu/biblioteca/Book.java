@@ -1,14 +1,18 @@
 package com.twu.biblioteca;
 
+import java.util.Objects;
+
 public class Book {
   private String name;
   private String author;
   private String yearPublished;
+  private boolean isCheckOut;
 
   public Book(String name, String author, String yearPublished) {
     this.name = name;
     this.author = author;
     this.yearPublished = yearPublished;
+    this.isCheckOut = false;
   }
 
   public String getName() {
@@ -35,6 +39,14 @@ public class Book {
     this.yearPublished = yearPublished;
   }
 
+  public boolean isCheckOut() {
+    return isCheckOut;
+  }
+
+  public void setCheckOut(boolean checkOut) {
+    isCheckOut = checkOut;
+  }
+
   @Override
   public String toString() {
     return "Book{" +
@@ -42,6 +54,18 @@ public class Book {
         ", author='" + author + '\'' +
         ", yearPublished='" + yearPublished + '\'' +
         '}';
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    Book book = (Book) o;
+    return Objects.equals(name, book.name);
   }
 }
 
