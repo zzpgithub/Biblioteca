@@ -25,7 +25,6 @@ public class MovieMenu {
 
   public void checkOutMovie(String movieName) {
     while (true) {
-      //System.out.println("Input book name want to check out:");
       if (isMovieCheckedOut(movieName, false)) {
         System.out.println("Thank you! Enjoy the movie");
         break;
@@ -36,9 +35,7 @@ public class MovieMenu {
     }
   }
 
-
   public void returnMovie(String movieName) {
-    //System.out.println("Please input a book name you want to return:");
     if(isMovieCheckedOut(movieName, true)){
       System.out.print("Thank you for returning the movie.\n");
     }
@@ -48,17 +45,12 @@ public class MovieMenu {
 
   public boolean isMovieCheckedOut(String movieName, boolean isCheckOut) {
     Movie checkOutMovie = new Movie(movieName, "", "","");
-    boolean flag = false;
     for (Movie movie : movieList) {
       if (checkOutMovie.equals(movie) && movie.isCheckOut() == isCheckOut) {
         movie.setCheckOut(!isCheckOut);
-        //bookList.remove(book);
-        flag = true;
-        break;
-      } else {
-        flag = false;
+        return true;
       }
     }
-    return flag;
+    return false;
   }
 }

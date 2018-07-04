@@ -1,12 +1,20 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.model.Movie;
 import com.twu.biblioteca.modelMenu.BookMenu;
 import com.twu.biblioteca.modelMenu.MovieMenu;
 import com.twu.biblioteca.modelMenu.UserMenu;
 import java.util.Scanner;
 
 public class Menu {
+
+  public static final String LIST_BOOKS = "1";
+  public static final String CHECKOUT_BOOK = "2";
+  public static final String RETURN_BOOK = "3";
+  public static final String LIST_MOVIES = "4";
+  public static final String CHECKOUT_MOVIE = "5";
+  public static final String RETURN_MOVIE = "6";
+  public static final String USER_ACCOUNTS = "7";
+  public static final String QUIT = "8";
 
   private BookMenu bookMenu;
   private UserMenu userMenu;
@@ -35,39 +43,39 @@ public class Menu {
   public void selectMenu() {
     printMenuOption();
     Scanner scanner = new Scanner(System.in);
-    int choice = scanner.nextInt();
+    String choice = scanner.nextLine();
     switch (choice) {
-      case 1:
+      case LIST_BOOKS:
         bookMenu.displayBookDetails();
         break;
-      case 2:
+      case CHECKOUT_BOOK:
         System.out.println("Input book name want to check out:");
         Scanner bookNameCheckOut = new Scanner(System.in);
         bookMenu.checkOutBook(bookNameCheckOut.nextLine());
         break;
-      case 3:
+      case RETURN_BOOK:
         System.out.println("Input book name want to return:");
         Scanner bookNameReturn = new Scanner(System.in);
         bookMenu.returnBook(bookNameReturn.nextLine());
         break;
-      case 4:
+      case LIST_MOVIES:
         movieMenu.displayMovie();
         break;
-      case 5:
+      case CHECKOUT_MOVIE:
         System.out.println("Input movie want to check out:");
         Scanner movieNameCheckOut = new Scanner(System.in);
         movieMenu.checkOutMovie(movieNameCheckOut.nextLine());
         break;
-      case 6:
+      case RETURN_MOVIE:
         System.out.println("Input movie name want to return:");
         Scanner movieNameReturn = new Scanner(System.in);
         movieMenu.returnMovie(movieNameReturn.nextLine());
         break;
-      case 7:
+      case USER_ACCOUNTS:
         System.out.println("Please logIn:");
         userMenu.login();
         break;
-      case 8:
+      case QUIT:
         System.exit(0);
       default:
         System.out.println("Select a valid option!\n");
