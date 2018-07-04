@@ -51,18 +51,13 @@ public class BookMenu {
 
   public boolean isBookCheckedOut(String bookName, boolean isCheckOut) {
     Book checkOutBook = new Book(bookName, "", "");
-    boolean flag = false;
     for (Book book : bookList) {
       if (checkOutBook.equals(book) && book.isCheckOut() == isCheckOut) {
         book.setCheckOut(!isCheckOut);
-        //bookList.remove(book);
-        flag = true;
-        break;
-      } else {
-        flag = false;
+        return true;
       }
     }
-    return flag;
+    return false;
   }
 }
 
